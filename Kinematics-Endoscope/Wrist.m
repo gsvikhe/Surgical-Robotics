@@ -40,7 +40,7 @@ classdef Wrist
             wrist_rot   = configuration(2) * pi / 180;         % wrist rotation in radians
             wrist_adv   = configuration(3) ;                   % Wrist advancement in the Z-axis 
 
-            temp = w-ro; % temp variable
+            temp = (w-ro)*0.001; % temp variable
             % Transformation Matrix corresponding to rotation about the z-axis
             T_rot_z = @(alpha) [cos(alpha) -sin(alpha) 0 0; 
                                 sin(alpha) cos(alpha)  0 0; 
@@ -109,7 +109,7 @@ classdef Wrist
             h = obj.notch_struct(1).h ;                      % height of the cutouts 
             w = obj.notch_struct(1).w ;                       % cut depth 
             notch_orient = [obj.notch_struct.orient] * pi / 180;     % notch orientation in radians.
-            temp = w-ro; 
+            temp = (w-ro)*0.001; 
             
             % Get the wrist configuration
             tendon_disp = configuration(1) ;            % displacement 
